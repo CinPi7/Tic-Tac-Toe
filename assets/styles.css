@@ -4,9 +4,14 @@ header {
   justify-content: center;
 }
 
+header .cool-colors:hover {
+  color: #f1aef2;
+  cursor: pointer;
+}
+
 header > div.tic-tac-toe img {
-  height: 150px;
-  width: 150px;
+  height: 120px;
+  width: 120px;
   margin: 10px 20px 20px 0;
 
   transform: rotate(-10deg);
@@ -40,4 +45,6 @@ header > div.tic-tac-toe img {
 
   font-size: 30px;
   font-family: "Workbench", sans-serif;
+
+  cursor: pointer;
 }

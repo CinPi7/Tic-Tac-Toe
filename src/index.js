@@ -7,11 +7,13 @@ const tic_tac_toe = {
     this.container_element = container;
   },
 
+  play: function () {},
+
   draw: function () {
     let content = "";
 
     for (let i in this.board) {
-      content += "<div>" + i + "</div>";
+      content += "<div>" + this.board[i] + "</div>";
     }
     this.container_element.innerHTML = content;
   },
