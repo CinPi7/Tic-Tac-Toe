@@ -1,0 +1,43 @@
+header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+header > div.tic-tac-toe img {
+  height: 150px;
+  width: 150px;
+  margin: 10px 20px 20px 0;
+
+  transform: rotate(-10deg);
+}
+
+.game {
+  display: grid;
+  grid-template: repeat(3, 1fr) / repeat(3, 1fr);
+
+  width: 300px;
+  height: 250px;
+  margin: 0 auto;
+  background-color: #000;
+  color: #fff;
+
+  border-radius: 10px;
+  border: 10px solid #000;
+}
+
+.game > div:hover {
+  background-color: #f1aef2;
+}
+
+.game > div {
+  border: 2px solid #77a7;
+  border-radius: 6px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 30px;
+  font-family: "Workbench", sans-serif;
+}
