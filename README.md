@@ -6,3 +6,4 @@
 Com o JavaScript Object Literal, foi inicializado, primeiramente, o board, contendo 9 casas, onde serão preenchicas com "X" ou "O".
 
 </p>
+<img src="./assets/images/screenshot-1.png"  />
