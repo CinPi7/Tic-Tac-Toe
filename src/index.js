@@ -27,7 +27,11 @@ const tic_tac_toe = {
 
   play(position) {
     const currentSymbol = this.symbols.options[this.symbols.turn_index];
-    this.board[position] = currentSymbol;
+
+    if (this.board[position] === "") {
+      this.board[position] = currentSymbol;
+      this.symbols.change();
+    }
     console.log("Set symbol to", this.symbols.options[this.symbols.turn_index]);
     this.draw();
 
@@ -49,8 +53,6 @@ const tic_tac_toe = {
     } else if (this.isBoardFull()) {
       this.gameover = true;
       alert("GAME OVER! Cannot make a move.");
-    } else {
-      this.symbols.change();
     }
   },
 
@@ -80,18 +82,13 @@ const tic_tac_toe = {
     return no_winning_sequences;
   },
 
+  computerTurn() {},
+
   isBoardFull() {
     const is_board_all_filled = this.board.every((field) => field !== "");
     console.log(is_board_all_filled, "filled");
     return is_board_all_filled;
   },
-
-  // is_game_over() {
-  //   if (!this.winning_sequences || is_game_over) {
-  //     this.gameover = true;
-  //     alert("GAME OVER! Cannot make a move.");
-  //   }
-  // },
 
   restart() {
     this.board.fill("");
