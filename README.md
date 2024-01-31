@@ -11,3 +11,5 @@ A função play é onde a mágica acontece. Quando um jogador faz uma jogada, es
 Para vencer o jogo, a função check_winning_sequences verifica se há uma sequência ganhadora no board de acordo com os índices do board.
 
 Caso queira começar um novo jogo, basta pressionar o botão para reiniciar o estado do jogo limpando o board.
+
+<img src="./assets/images/screenshot-1.png" />
