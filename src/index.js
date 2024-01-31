@@ -5,6 +5,7 @@ const tic_tac_toe = {
     turn_index: 0,
     change() {
       this.turn_index = this.turn_index === 0 ? 1 : 0;
+      console.log("Changed turn_index to", this.turn_index);
     },
   },
   container_element: null,
@@ -27,13 +28,33 @@ const tic_tac_toe = {
   play(position) {
     const currentSymbol = this.symbols.options[this.symbols.turn_index];
     this.board[position] = currentSymbol;
+    console.log("Set symbol to", this.symbols.options[this.symbols.turn_index]);
     this.draw();
 
     this.is_game_over();
 
-    const winning_sequences_index = this.check_winning_sequences(currentSymbol);
-    if (winning_sequences_index >= 0) {
-      return;
+    const winning_sequences = this.check_winning_sequences(currentSymbol);
+
+    if (winning_sequences.indice >= 0) {
+      console.log(
+        "winning-sequences:",
+        winning_sequences.firstField,
+        winning_sequences.secondField,
+        winning_sequences.thirdField
+      );
+
+      let firstField = document.getElementById(
+        "cell-" + winning_sequences.firstField
+      );
+      let secondField = document.getElementById(
+        "cell-" + winning_sequences.secondField
+      );
+      let thirdField = document.getElementById(
+        "cell-" + winning_sequences.thirdField
+      );
+      firstField.style.color = "#f1aef2";
+      secondField.style.color = "#f1aef2";
+      thirdField.style.color = "#f1aef2";
     } else {
       this.symbols.change();
     }
@@ -53,7 +74,12 @@ const tic_tac_toe = {
         thirdField === currentSymbol
       ) {
         alert("The WINNER is char " + currentSymbol);
-        return i;
+        return {
+          indice: i,
+          firstField: this.winning_sequences[i][0],
+          secondField: this.winning_sequences[i][1],
+          thirdField: this.winning_sequences[i][2],
+        };
       }
     }
 
@@ -62,9 +88,16 @@ const tic_tac_toe = {
 
   is_game_over() {
     const is_game_over = this.board.every((field) => field !== "");
-    if (is_game_over) {
-      alert("GAME OVER");
+    if (is_game_over && !this.winning_sequences) {
+      this.gameover = true;
+      alert("GAME OVER! Cannot make a move.");
     }
+  },
+
+  restart() {
+    this.board.fill("");
+    this.draw();
+    this.gameover = false;
   },
 
   draw() {
@@ -72,7 +105,9 @@ const tic_tac_toe = {
 
     for (let i in this.board) {
       content +=
-        '<div onclick="tic_tac_toe.play(' +
+        '<div id="cell-' +
+        i +
+        '" onclick="tic_tac_toe.play(' +
         i +
         ')">' +
         this.board[i] +

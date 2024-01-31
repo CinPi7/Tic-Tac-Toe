@@ -48,3 +48,29 @@ header > div.tic-tac-toe img {
 
   cursor: pointer;
 }
+
+div.button-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin: 2rem auto;
+}
+
+div.button-container > button.restart-btn {
+  height: 35px;
+  width: 200px;
+  border-radius: 10px;
+  border: 2px solid #77a7;
+  background-color: black;
+  color: white;
+  font-family: "Workbench", sans-serif;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+div.button-container > button.restart-btn:hover {
+  background-color: #f1aef2;
+  color: black;
+}
