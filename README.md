@@ -38,4 +38,4 @@ If you want to start a new game, simply press the button to reset the game state
 
 
 Best Regards! <3
-CinPi7.
+<p>CinPi7.</p>
