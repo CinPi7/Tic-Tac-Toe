@@ -37,5 +37,5 @@ in Tic-Tac-Toe.
 If you want to start a new game, simply press the button to reset the game state, clearing the board.
 
 
-Best Regards! <3
+<p>Best Regards! <3 </p>
 <p>CinPi7.</p>
